@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="title">Ignore the button, check out the console</h2>
+    <button id="myBtn">Click Me</button>
+</body>
+    <script type="text/javascript">
+    const NameList = {
+        names: [],
+        onNewName: null,
+
+        init: function (newNameCallback) {
+            this.onNewName = newNameCallback;
+        },
+        addName: function (name) {
+            this.names.push(name);
+            this.onNewName(name, this.names);
+        }
+    };
+
+    NameList.init(function (newName, allNames) {
+        console.log(newName);
+        console.log("The current list is: " + allNames);
+});
+
+NameList.addName("Domenic");
+NameList.addName("John");
+NameList.addName("Sam");
+    </script>
+</html>
